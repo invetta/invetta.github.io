@@ -1,0 +1,426 @@
+@import 'materialize';
+@import 'slick';
+@import 'slick-theme';
+
+$M: 20px;
+
+.slick-dots {
+  bottom: $M;
+
+  li {
+    margin: 0;
+  }
+}
+
+#i-offer-slider {
+  height: 100px;
+}
+
+
+@mixin placeholder {
+  ::-webkit-input-placeholder { @content };
+  ::-moz-placeholder          { @content }; /* firefox 19+ */
+  :-ms-input-placeholder      { @content }; /* ie */
+  input:-moz-placeholder      { @content };
+}
+
+@mixin font-face($name, $path, $format, $font-weight: '', $font-style: '') {
+  @font-face {
+    font-family: $name;
+    src: url($path) format($format);
+    @if $font-weight != '' {
+      font-weight: $font-weight;
+    }
+    @if $font-style != '' {
+      font-style: $font-style;
+    }
+  }
+}
+
+@mixin borda-font-face($path-suffix, $font-weight: '', $font-style: '') {
+  @include font-face(Borda, '../fonts/borda/' + $path-suffix + '.otf',
+    'opentype', $font-weight, $font-style);
+}
+
+@include borda-font-face('Borda Light',        200);
+@include borda-font-face('Borda Light Italic', 200, italic);
+@include borda-font-face('Borda', normal); // Same as font-weight: 400
+@include borda-font-face('Borda Italic', normal, italic);
+@include borda-font-face('Borda Medium', 500);
+@include borda-font-face('Borda Medium Italic', 500, italic);
+@include borda-font-face('Borda Demi Bold', 600);
+@include borda-font-face('Borda Demi Bold Italic', 600, italic);
+@include borda-font-face('Borda Bold', bold); // Same as font-weight: 700
+@include borda-font-face('Borda Bold Italic', bold, italic);
+@include borda-font-face('Borda Extra Bold', 900);
+@include borda-font-face('Borda Extra Bold Italic', 900, italic);
+
+@mixin uppercase {
+  text-transform: uppercase;
+}
+
+@mixin parallax {
+  background-attachment: fixed;
+}
+
+$header-text-color: white;
+$main-header-height: 640px;
+$subpage-header-height: 400px;
+$gray: #757575;
+$dark-gray: #3a3a3a;
+$navy-blue: #023866;
+$navy-blue-dark: #032949;
+$navy-blue-light: #3e678a;
+
+body {
+  font-family: Borda;
+
+  &.i-main {
+    .i-header {
+      height: $main-header-height;
+    }
+  }
+
+  &.i-subpage {
+    .i-header {
+      height: $subpage-header-height;
+
+      h1 {
+        text-transform: none;
+        font-size: 100px;
+        position: absolute;
+        bottom: 0;
+        margin-bottom: -$M/2;
+        line-height: 1;
+      }
+    }
+  }
+}
+
+.i-header {
+  @include uppercase;
+  @include parallax;
+  background-image: url('../images/backgrounds/blue-dish.png');
+  width: 100%;
+
+  background-size: cover;
+  color: $header-text-color;
+  position: relative;
+
+  .i-logo {
+    max-width: 200px;
+  }
+
+  a {
+    color: $header-text-color;
+  }
+
+  .i-menu {
+    margin-top: $M/2;
+    font-size: 16px;
+    font-weight: 600;
+
+    li {
+      display: inline-block;
+      padding: 0 36px;
+    }
+  }
+
+  p {
+    margin: $M*4 0 0;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  h1 {
+    margin-top: $M 0 0;
+    font-size: 36px;
+    line-height: 1.33;
+    font-weight: 900;
+  }
+
+  h1 + .i-btn {
+    margin-top: $M*1.5;
+  }
+}
+
+.i-btn {
+  @include uppercase;
+  display: inline-block;
+  padding: $M/2 $M;
+  min-width: $M*7;
+  font-size: 14px;
+  border: 1px solid $navy-blue;
+  color: $navy-blue-light;
+  background-color: transparent;
+  font-weight: 900;
+
+  img {
+    float: right;
+    margin-top: 4px;
+    display: inline-block;
+    margin-left: $M/2;
+    height: 14px;
+  }
+}
+
+.i-light {
+  $text-color: black;
+  $paragraph-text-color: $gray;
+
+  color: $text-color;
+  a:not(.i-btn) {
+    color: $text-color;
+  }
+
+  p {
+    color: $paragraph-text-color;
+  }
+}
+
+.i-dark {
+  $text-color: white;
+  $paragraph-text-color: white;
+
+  color: $text-color;
+  a:not(.i-btn) {
+    color: $text-color;
+  }
+
+  .i-btn {
+    border: 1px solid white;
+    color: white;
+  }
+
+  p {
+    color: $paragraph-text-color;
+  }
+}
+
+.i-content {
+  h2 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 400;
+  }
+
+  h2.first-header {
+    margin-top: $M*3;
+  }
+
+  h3 {
+    @include uppercase;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  h2 + h3 {
+    margin-top: $M/2
+  }
+
+  h3 + h2 {
+    margin-top: 0;
+  }
+
+  h3 + p {
+    margin: $M*2 0 0;
+  }
+
+  p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 700;
+  }
+
+  p + .i-btn {
+    margin-top: $M*2;
+  }
+
+  .i-content-space, .i-content-space-small, .i-content-space-tiny {
+    margin: 0;
+  }
+
+  .i-content-space {
+    padding: $M*4 0;
+  }
+
+  .i-content-space-small {
+    padding: $M*3 0;
+  }
+
+  .i-content-space-tiny {
+    padding: $M*2 0;
+  }
+
+  .i-topic-list {
+    margin: 0;
+
+    li {
+      @include uppercase;
+      display: inline-block;
+      font-size: 26px;
+      font-weight: 200;
+
+      &:not(:last-child)::after {
+        content: " /";
+        font-weight: 700;
+      }
+
+      span {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .i-mini-logos {
+    $margin-top:           $M*3;
+    $mini-logo-max-height: $M*1.5;
+
+    margin-top: $margin-top;
+    display: flex;
+    align-items: center;
+
+    &.i-partner-logos {
+      margin-top: $margin-top + $mini-logo-max-height/6;
+    }
+
+    .i-mini-logo {
+      flex: 1 1 auto;
+
+      img {
+        max-width: 100%;
+        max-height: $M*1.5;
+        padding: 0 $M;
+      }
+    }
+  }
+}
+
+.i-bg-shades {
+  @include parallax;
+  background-image: url('../images/backgrounds/blue-shades.png');
+  background-size: cover;
+}
+
+.i-bg-navy-blue-dark {
+  background-color: $navy-blue;
+}
+
+.form-wrapper {
+  padding: $M*2;
+}
+
+form {
+  margin-top: $M;
+
+  button.i-btn {
+    background-color: $navy-blue-dark;
+  }
+
+  input, textarea, button {
+    margin-top: $M/1.5;
+    width: 100%;
+  }
+
+  input, textarea {
+    padding: $M/1.8 $M/1.5;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    color: black;
+
+    @include placeholder {
+      color: $gray;
+    }
+  }
+}
+
+.i-bg-letter-blue {
+  background-image: url('../images/various/letter.png');
+  background-size: 50% auto;
+  background-position: 0% 50%;
+  background-color: $navy-blue;
+  background-repeat: no-repeat;
+}
+
+.i-bg-dark-gray, .i-bg-plus {
+  background-size: 64px 64px;
+}
+
+.i-bg-dark-gray {
+  background-image: url('../images/backgrounds/gray-cross.png');
+}
+
+.i-bg-plus {
+  background-image: url('../images/backgrounds/cross.png');
+}
+
+.i-footer {
+  h3 + .i-company-detail {
+    margin-top: $M;
+  }
+
+  .i-company-detail {
+    $font-size: 15px;
+
+    margin-top: $M/1.5;
+    font-size: $font-size;
+    display: block;
+
+    i {
+      font-size: $font-size;
+      vertical-align: sub;
+      margin-right: $M/3;
+    }
+  }
+
+  .i-company-details-flex {
+    display: flex;
+
+    .i-company-detail {
+      flex: 1 1 auto;
+      margin-top: $M;
+    }
+  }
+
+  .i-logo {
+    opacity: 0.6;
+    max-width: 120px;
+  }
+}
+
+.i-last-row {
+  margin: 0;
+  padding-bottom: $M*3;
+}
+
+.i-about-us {
+  .row {
+    .col {
+      padding: 0;
+    }
+
+    .col:first-child {
+      width: 45%;
+      padding-left: 15%;
+    }
+
+    .col:nth-child(2) {
+      width: 55%;
+      margin-top: -$M*3;
+
+      background-color: transparent;
+      background-image: url('../images/backgrounds/network.png');
+      background-size: 90% 100%;
+      background-position: top right;
+      background-repeat: no-repeat;
+
+      img {
+        margin-top: $M*2;
+      }
+    }
+  }
+
+}
