@@ -15,6 +15,6 @@
       $offerSlider.slick('slickGoTo', n);
     }
 
-    $('#i-about-us-slider').slick();
+    // $('#i-about-us-slider').slick();
   });
 }(jQuery));

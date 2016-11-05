@@ -1,0 +1,22 @@
+@mixin placeholder {
+  ::-webkit-input-placeholder { @content };
+  ::-moz-placeholder          { @content }; /* firefox 19+ */
+  :-ms-input-placeholder      { @content }; /* ie */
+  input:-moz-placeholder      { @content };
+}
+@mixin uppercase {
+  text-transform: uppercase;
+}
+@mixin parallax {
+  background-attachment: fixed;
+}
+@mixin fade-in($time) {
+  transition: opacity $time ease-in;
+  opacity: 1;
+}
+@mixin blur($radius) {
+  filter        : blur($radius);
+  -moz-filter   : blur($radius);
+  -webkit-filter: blur($radius);
+  -o-filter     : blur($radius);
+}

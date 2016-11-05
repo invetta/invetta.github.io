@@ -1,0 +1,78 @@
+extends layout.pug
+
+block top
+  - var main = true
+
+block header
+  p Witaj na stronie Invetta
+  h1
+    | Proinnowacyjna integracja przedsiębiorstw ze sektorem badawczo-rozwojowym
+  a.i-btn(href='#o-nas')
+    | Poznaj nas
+    img(src='images/icons/white-arrow-right.png')
+
+block content
+  // O nas
+  a(name='o-nas')
+  .i-content.i-bg-plus.i-light.i-about-us
+    .row
+      .col
+        h2.first-header O nas
+        h3 Na czym polega nasza działalność?
+        p
+          | Invetta Sp. z o.o. powstała z misją wspierania naszych klientów w proinnowacyjnej integracji przedsiębiorstw z sektorem badawczo-rozwojowym oraz ułatwieniu prac rozwojowych. Swoją wiedzą i doświadczeniem wspomagamy przedsiębiorców, aby mogli rozwijać swój biznes i skutecznie konkurować z innymi podmiotami na rynku.
+        a.i-btn(href='o-nas.html')
+          | WIĘCEJ
+          img(src='images/icons/blue-arrow-right.png')
+      .col
+        #i-about-us-slider
+          p
+            img.responsive-img(src='images/backgrounds/cubes.png')
+  // Oferta
+  a(name='oferta')
+  .i-content.i-bg-plus.i-light
+    .container
+      .row.i-content-space-tiny
+        .col.s12.center-align
+          h2 Oferta
+          h3 Co możemy zrobić dla Twojej firmy
+  .i-content.i-dark.i-bg-shades
+    .container
+      .row.i-content-space.valign-wrapper
+        .col.s6
+          ul.i-topic-list
+            li
+              span(onclick='goToSlide(0);') Biznes
+            li
+              span(onclick='goToSlide(1);') Finanse
+            li
+              span(onclick='goToSlide(2);') Audyt technologiczny
+            li
+              span(onclick='goToSlide(3);') Innowacje
+            li
+              span(onclick='goToSlide(4);') Mentoring wdrożeniowy
+            li
+              span(onclick='goToSlide(5);') Ośrodki naukowo - badawcze
+            li
+              span(onclick='goToSlide(6);') Jednostki samorządu terytorialnego
+        .col.s6.valign.center-align
+          #i-offer-slider
+            p
+              | Pomagamy wyznaczyć nowe kierunki rozwoju, zwiększać zyskowność oraz
+              | optymalizować procesy zachodzące wewnątrz firmy.
+            p
+              | *** TODO: Finanse ***
+            p
+              | *** TODO: Audyt technologiczny ***
+            p
+              | *** TODO: Innowacje ***
+            p
+              | *** TODO: Mentoring wdrożeniowy ***
+            p
+              | *** TODO: Ośrodki naukowo - badawcze ***
+            p
+              | *** TODO: Jednostki samorządu terytorialnego ***
+      .row
+        .col.s12.center-align
+          div(style='position: relative')
+            #i-offer-slider-dots

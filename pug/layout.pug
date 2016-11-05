@@ -1,0 +1,25 @@
+block top
+html
+  head
+    meta(charset='utf-8')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(rel='stylesheet', href='css/main.css')
+
+  body(class=main ? 'i-main' : 'i-subpage')
+    // Header
+    .i-header.i-dark
+      .container
+        .row
+          .col.s12.center-align
+            a(href='/')
+              img.i-logo(src='images/logos/invetta.png')
+            include partials/menu.pug
+        .row
+          .col.s8
+            block header
+
+    block content
+    include partials/partnerzy.pug
+    include partials/kontakt.pug
+    include partials/footer.pug
+    include partials/scripts.pug

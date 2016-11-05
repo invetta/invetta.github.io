@@ -1,0 +1,265 @@
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Light.otf") format("opentype");
+  font-weight: 200; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Light Italic.otf") format("opentype");
+  font-weight: 200;
+  font-style: italic; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda.otf") format("opentype");
+  font-weight: normal; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Medium.otf") format("opentype");
+  font-weight: 500; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Medium Italic.otf") format("opentype");
+  font-weight: 500;
+  font-style: italic; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Demi Bold.otf") format("opentype");
+  font-weight: 600; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Demi Bold Italic.otf") format("opentype");
+  font-weight: 600;
+  font-style: italic; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Bold.otf") format("opentype");
+  font-weight: bold; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Bold Italic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Extra Bold.otf") format("opentype");
+  font-weight: 900; }
+@font-face {
+  font-family: Borda;
+  src: url("../fonts/borda/Borda Extra Bold Italic.otf") format("opentype");
+  font-weight: 900;
+  font-style: italic; }
+body {
+  font-family: Borda; }
+
+.i-header {
+  text-transform: uppercase;
+  background-attachment: fixed;
+  background-image: url("../images/backgrounds/blue-dish.png");
+  width: 100%;
+  height: 640px;
+  background-size: cover;
+  color: white; }
+  .i-header .i-logo {
+    max-width: 200px; }
+  .i-header a {
+    color: white; }
+  .i-header .i-menu {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 600; }
+    .i-header .i-menu li {
+      display: inline-block;
+      padding: 0 36px; }
+  .i-header p {
+    margin: 80px 0 0;
+    font-size: 20px;
+    font-weight: 700; }
+  .i-header h1 {
+    margin-top: 20px 0 0;
+    font-size: 36px;
+    line-height: 1.33;
+    font-weight: 900; }
+  .i-header h1 + .i-btn {
+    margin-top: 30px; }
+
+.i-btn {
+  text-transform: uppercase;
+  display: inline-block;
+  padding: 10px 20px;
+  min-width: 140px;
+  font-size: 14px;
+  border: 1px solid #023866;
+  color: #3e678a;
+  background-color: transparent;
+  font-weight: 900; }
+  .i-btn img {
+    float: right;
+    margin-top: 4px;
+    display: inline-block;
+    margin-left: 10px;
+    height: 14px; }
+
+.i-light {
+  color: black; }
+  .i-light a:not(.i-btn) {
+    color: black; }
+  .i-light p {
+    color: #757575; }
+
+.i-dark {
+  color: white; }
+  .i-dark a:not(.i-btn) {
+    color: white; }
+  .i-dark .i-btn {
+    border: 1px solid white;
+    color: white; }
+  .i-dark p {
+    color: white; }
+
+.i-content {
+  background-image: url("../images/backgrounds/cross.png");
+  background-size: 64px 64px; }
+  .i-content h2 {
+    margin: 0;
+    font-size: 36px;
+    font-weight: 400; }
+  .i-content h2.first-header {
+    margin-top: 60px; }
+  .i-content h3 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700; }
+  .i-content h2 + h3 {
+    margin-top: 10px; }
+  .i-content h3 + h2 {
+    margin-top: 0; }
+  .i-content h3 + p {
+    margin: 40px 0 0; }
+  .i-content p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 700; }
+  .i-content p + .i-btn {
+    margin-top: 40px; }
+  .i-content .i-content-space, .i-content .i-content-space-small, .i-content .i-content-space-tiny {
+    margin: 0; }
+  .i-content .i-content-space {
+    padding: 80px 0; }
+  .i-content .i-content-space-small {
+    padding: 60px 0; }
+  .i-content .i-content-space-tiny {
+    padding: 40px 0; }
+  .i-content .i-topic-list {
+    margin: 0; }
+    .i-content .i-topic-list li {
+      text-transform: uppercase;
+      display: inline-block;
+      font-size: 26px;
+      font-weight: 200; }
+      .i-content .i-topic-list li:not(:last-child)::after {
+        content: " /";
+        font-weight: 700; }
+  .i-content .i-mini-logos {
+    margin-top: 60px;
+    display: flex;
+    align-items: center; }
+    .i-content .i-mini-logos.i-partner-logos {
+      margin-top: 65px; }
+    .i-content .i-mini-logos .i-mini-logo {
+      flex: 1 1 auto; }
+      .i-content .i-mini-logos .i-mini-logo img {
+        max-width: 100%;
+        max-height: 30px;
+        padding: 0 20px; }
+
+.i-bg-shades {
+  background-attachment: fixed;
+  background-image: url("../images/backgrounds/blue-shades.png");
+  background-size: cover; }
+
+.i-bg-navy-blue-dark {
+  background-color: #023866; }
+
+.form-wrapper {
+  padding: 40px; }
+
+form {
+  margin-top: 20px; }
+  form button.i-btn {
+    background-color: #032949; }
+  form input, form textarea, form button {
+    margin-top: 13.33333px;
+    width: 100%; }
+  form input, form textarea {
+    padding: 11.11111px 13.33333px;
+    font-size: 15px;
+    font-weight: 600;
+    outline: none;
+    color: black;
+    /* firefox 19+ */
+    /* ie */ }
+    form input ::-webkit-input-placeholder, form textarea ::-webkit-input-placeholder {
+      color: #757575; }
+    form input ::-moz-placeholder, form textarea ::-moz-placeholder {
+      color: #757575; }
+    form input :-ms-input-placeholder, form textarea :-ms-input-placeholder {
+      color: #757575; }
+    form input input:-moz-placeholder, form textarea input:-moz-placeholder {
+      color: #757575; }
+
+.i-bg-letter-blue {
+  background-image: url("../images/various/letter.png");
+  background-size: 50% auto;
+  background-position: 0% 50%;
+  background-color: #023866;
+  background-repeat: no-repeat; }
+
+.i-bg-dark-gray {
+  background-image: url("../images/backgrounds/gray-cross.png"); }
+
+.i-footer h3 + .i-company-detail {
+  margin-top: 20px; }
+.i-footer .i-company-detail {
+  margin-top: 13.33333px;
+  font-size: 15px;
+  display: block; }
+  .i-footer .i-company-detail i {
+    font-size: 15px;
+    vertical-align: sub;
+    margin-right: 6.66667px; }
+.i-footer .i-company-details-flex {
+  display: flex; }
+  .i-footer .i-company-details-flex .i-company-detail {
+    flex: 1 1 auto;
+    margin-top: 20px; }
+.i-footer .i-logo {
+  opacity: 0.6;
+  max-width: 120px; }
+
+.i-last-row {
+  margin: 0;
+  padding-bottom: 60px; }
+
+.i-about-us .row .col {
+  padding: 0; }
+.i-about-us .row .col:first-child {
+  width: 45%;
+  padding-left: 15%; }
+.i-about-us .row .col:nth-child(2) {
+  width: 55%;
+  margin-top: -60px;
+  background-color: transparent;
+  background-image: url("../images/backgrounds/network.png");
+  background-size: 90% 100%;
+  background-position: top right;
+  background-repeat: no-repeat; }
+  .i-about-us .row .col:nth-child(2) img {
+    margin-top: 40px; }
+
+/*# sourceMappingURL=app.css.map */

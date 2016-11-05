@@ -2,75 +2,11 @@
 @import 'slick';
 @import 'slick-theme';
 
-$M: 20px;
+@import 'invetta/fonts';
+@import 'invetta/variables';
+@import 'invetta/third-party-overwrites';
+@import 'invetta/mixins';
 
-.slick-dots {
-  bottom: $M;
-
-  li {
-    margin: 0;
-  }
-}
-
-#i-offer-slider {
-  height: 100px;
-}
-
-
-@mixin placeholder {
-  ::-webkit-input-placeholder { @content };
-  ::-moz-placeholder          { @content }; /* firefox 19+ */
-  :-ms-input-placeholder      { @content }; /* ie */
-  input:-moz-placeholder      { @content };
-}
-
-@mixin font-face($name, $path, $format, $font-weight: '', $font-style: '') {
-  @font-face {
-    font-family: $name;
-    src: url($path) format($format);
-    @if $font-weight != '' {
-      font-weight: $font-weight;
-    }
-    @if $font-style != '' {
-      font-style: $font-style;
-    }
-  }
-}
-
-@mixin borda-font-face($path-suffix, $font-weight: '', $font-style: '') {
-  @include font-face(Borda, '../fonts/borda/' + $path-suffix + '.otf',
-    'opentype', $font-weight, $font-style);
-}
-
-@include borda-font-face('Borda Light',        200);
-@include borda-font-face('Borda Light Italic', 200, italic);
-@include borda-font-face('Borda', normal); // Same as font-weight: 400
-@include borda-font-face('Borda Italic', normal, italic);
-@include borda-font-face('Borda Medium', 500);
-@include borda-font-face('Borda Medium Italic', 500, italic);
-@include borda-font-face('Borda Demi Bold', 600);
-@include borda-font-face('Borda Demi Bold Italic', 600, italic);
-@include borda-font-face('Borda Bold', bold); // Same as font-weight: 700
-@include borda-font-face('Borda Bold Italic', bold, italic);
-@include borda-font-face('Borda Extra Bold', 900);
-@include borda-font-face('Borda Extra Bold Italic', 900, italic);
-
-@mixin uppercase {
-  text-transform: uppercase;
-}
-
-@mixin parallax {
-  background-attachment: fixed;
-}
-
-$header-text-color: white;
-$main-header-height: 640px;
-$subpage-header-height: 400px;
-$gray: #757575;
-$dark-gray: #3a3a3a;
-$navy-blue: #023866;
-$navy-blue-dark: #032949;
-$navy-blue-light: #3e678a;
 
 body {
   font-family: Borda;
@@ -86,7 +22,6 @@ body {
       height: $subpage-header-height;
 
       h1 {
-        text-transform: none;
         font-size: 100px;
         position: absolute;
         bottom: 0;
@@ -98,7 +33,6 @@ body {
 }
 
 .i-header {
-  @include uppercase;
   @include parallax;
   background-image: url('../images/backgrounds/blue-dish.png');
   width: 100%;
@@ -115,14 +49,91 @@ body {
     color: $header-text-color;
   }
 
-  .i-menu {
+  h1,p,ul.i-menu {
+    @include uppercase;
+  }
+
+  ul.i-menu {
     margin-top: $M/2;
     font-size: 16px;
     font-weight: 600;
 
     li {
       display: inline-block;
-      padding: 0 36px;
+      padding: 0 36px $M;
+      position: relative;
+
+      a, img {
+        vertical-align: middle;
+      }
+
+      img {
+        margin-left: $M/3;
+      }
+
+      &:hover {
+        img {
+          transform: rotate(-180deg);
+          transition: 0.5s;
+        }
+
+        ul.i-dropdown {
+          @include fade-in(0.3s);
+          z-index: 10;
+
+          li {
+            @include fade-in(1.2s);
+          }
+        }
+      }
+
+      ul.i-dropdown:before {
+        @include blur(5px);
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width : 100%;
+        height: 100%;
+        background-image: linear-gradient(to right, transparent, $darker-navy-blue, transparent);
+        z-index: -1;
+      }
+
+      ul.i-dropdown {
+        z-index:          -100;
+        opacity:          0;
+        position:         absolute;
+        top:              $M*2;
+        left:             46%;
+        transform:        translateX(-50%);
+        width:            700px;
+        height:           150px;
+        padding:          $M 0 $M*2.5;
+        margin:           auto;
+        font-size:        16px;
+
+        li {
+          opacity: 0;
+          padding: $M/4 0;
+          display: block;
+
+          .i-arrow {
+            background: url('../images/icons/blue-arrow-right.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            filter: grayscale(100%) brightness(1000%);
+            display: inline-block;
+            height: 10px;
+            width: 5px;
+            margin-right: $M/2;
+          }
+          a:hover, a:focus, a:active {
+            .i-arrow {
+              filter: brightness(300%);
+            }
+          }
+        }
+      }
     }
   }
 
@@ -151,7 +162,7 @@ body {
   min-width: $M*7;
   font-size: 14px;
   border: 1px solid $navy-blue;
-  color: $navy-blue-light;
+  color: $light-navy-blue;
   background-color: transparent;
   font-weight: 900;
 
@@ -266,6 +277,7 @@ body {
       &:not(:last-child)::after {
         content: " /";
         font-weight: 700;
+        margin-right: $M/3;
       }
 
       span {
@@ -298,6 +310,74 @@ body {
   }
 }
 
+.i-sheet {
+  .row:first-child {
+    margin-top:  $M*2;
+  }
+
+  ul.section-links {
+    margin-left: $M;
+
+    li {
+      display:      inline-block;
+      margin-right: 25px;
+      font-size:    24px;
+      font-weight:  700;
+
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        color: $light-gray;
+
+        &:hover, &:active {
+          color: $lighter-navy-blue;
+        }
+      }
+    }
+  }
+
+  h2, p {
+    line-height: 2;
+    text-align:  center;
+  }
+
+  h2 {
+    @include uppercase;
+    margin-top:     $M*4;
+    font-size:      14px;
+    font-weight:    900;
+    letter-spacing: 8px;
+  }
+
+  p {
+    margin-bottom: $M*2;
+    font-size:     18px;
+    font-weight:   500;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul:not(.section-links) {
+    margin-top:    -$M;
+    margin-bottom: $M*2;
+    text-align: center;
+
+    li {
+      margin-bottom: $M/2;
+      font-size:     16px;
+    }
+  }
+
+  &.i-light p {
+    color: black;
+  }
+}
+
 .i-bg-shades {
   @include parallax;
   background-image: url('../images/backgrounds/blue-shades.png');
@@ -316,7 +396,7 @@ form {
   margin-top: $M;
 
   button.i-btn {
-    background-color: $navy-blue-dark;
+    background-color: $dark-navy-blue;
   }
 
   input, textarea, button {
@@ -409,7 +489,9 @@ form {
 
     .col:nth-child(2) {
       width: 55%;
-      margin-top: -$M*3;
+      margin-top: -$M*3.5;
+      position: relative;
+      z-index: 100;
 
       background-color: transparent;
       background-image: url('../images/backgrounds/network.png');
@@ -422,5 +504,8 @@ form {
       }
     }
   }
+}
 
+#i-offer-slider {
+  height: 100px;
 }

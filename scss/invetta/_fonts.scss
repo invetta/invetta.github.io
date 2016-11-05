@@ -1,0 +1,30 @@
+@mixin font-face($name, $path, $format, $font-weight: '', $font-style: '') {
+  @font-face {
+    font-family: $name;
+    src: url($path) format($format);
+    @if $font-weight != '' {
+      font-weight: $font-weight;
+    }
+    @if $font-style != '' {
+      font-style: $font-style;
+    }
+  }
+}
+
+@mixin borda-font-face($path-suffix, $font-weight: '', $font-style: '') {
+  @include font-face(Borda, '../fonts/borda/' + $path-suffix + '.otf',
+    'opentype', $font-weight, $font-style);
+}
+
+@include borda-font-face('Borda Light',        200);
+@include borda-font-face('Borda Light Italic', 200, italic);
+@include borda-font-face('Borda', normal); // Same as font-weight: 400
+@include borda-font-face('Borda Italic', normal, italic);
+@include borda-font-face('Borda Medium', 500);
+@include borda-font-face('Borda Medium Italic', 500, italic);
+@include borda-font-face('Borda Demi Bold', 600);
+@include borda-font-face('Borda Demi Bold Italic', 600, italic);
+@include borda-font-face('Borda Bold', bold); // Same as font-weight: 700
+@include borda-font-face('Borda Bold Italic', bold, italic);
+@include borda-font-face('Borda Extra Bold', 900);
+@include borda-font-face('Borda Extra Bold Italic', 900, italic);
