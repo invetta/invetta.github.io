@@ -22,11 +22,16 @@ body {
       height: $subpage-header-height;
 
       h1 {
-        font-size: 100px;
+        font-size: $M*5;
         position: absolute;
+        width: 66.7%;
         bottom: 0;
         margin-bottom: -$M/2;
         line-height: 1;
+
+        &.small {
+          font-size: $M*4;
+        }
       }
     }
   }
@@ -78,11 +83,11 @@ body {
         }
 
         ul.i-dropdown {
-          @include fade-in(0.3s);
+          @include fade-in(0.25s);
           z-index: 10;
 
           li {
-            @include fade-in(1.2s);
+            @include fade-in(0.9s);
           }
         }
       }
@@ -311,6 +316,8 @@ body {
 }
 
 .i-sheet {
+  padding-bottom: $M*3;
+
   .row:first-child {
     margin-top:  $M*2;
   }
@@ -504,6 +511,10 @@ form {
       }
     }
   }
+}
+
+.i-slider-dots-row {
+  margin-bottom: 0;
 }
 
 #i-offer-slider {

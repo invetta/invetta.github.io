@@ -5479,9 +5479,12 @@ body {
     body.i-subpage .i-header h1 {
       font-size: 100px;
       position: absolute;
+      width: 66.7%;
       bottom: 0;
       margin-bottom: -10px;
       line-height: 1; }
+      body.i-subpage .i-header h1.small {
+        font-size: 80px; }
 
 .i-header {
   background-attachment: fixed;
@@ -5512,11 +5515,11 @@ body {
         transform: rotate(-180deg);
         transition: 0.5s; }
       .i-header ul.i-menu li:hover ul.i-dropdown {
-        transition: opacity 0.3s ease-in;
+        transition: opacity 0.25s ease-in;
         opacity: 1;
         z-index: 10; }
         .i-header ul.i-menu li:hover ul.i-dropdown li {
-          transition: opacity 1.2s ease-in;
+          transition: opacity 0.9s ease-in;
           opacity: 1; }
       .i-header ul.i-menu li ul.i-dropdown:before {
         filter: blur(5px);
@@ -5662,45 +5665,47 @@ body {
       max-height: 30px;
       padding: 0 20px; }
 
-.i-sheet .row:first-child {
-  margin-top: 40px; }
-.i-sheet ul.section-links {
-  margin-left: 20px; }
-  .i-sheet ul.section-links li {
-    display: inline-block;
-    margin-right: 25px;
-    font-size: 24px;
-    font-weight: 700; }
-    .i-sheet ul.section-links li:last-child {
-      margin-right: 0; }
-    .i-sheet ul.section-links li a {
-      color: #a6b0b5; }
-      .i-sheet ul.section-links li a:hover, .i-sheet ul.section-links li a:active {
-        color: #045c93; }
-.i-sheet h2, .i-sheet p {
-  line-height: 2;
-  text-align: center; }
-.i-sheet h2 {
-  text-transform: uppercase;
-  margin-top: 80px;
-  font-size: 14px;
-  font-weight: 900;
-  letter-spacing: 8px; }
-.i-sheet p {
-  margin-bottom: 40px;
-  font-size: 18px;
-  font-weight: 500; }
-  .i-sheet p:last-child {
-    margin-bottom: 0; }
-.i-sheet ul:not(.section-links) {
-  margin-top: -20px;
-  margin-bottom: 40px;
-  text-align: center; }
-  .i-sheet ul:not(.section-links) li {
-    margin-bottom: 10px;
-    font-size: 16px; }
-.i-sheet.i-light p {
-  color: black; }
+.i-sheet {
+  padding-bottom: 60px; }
+  .i-sheet .row:first-child {
+    margin-top: 40px; }
+  .i-sheet ul.section-links {
+    margin-left: 20px; }
+    .i-sheet ul.section-links li {
+      display: inline-block;
+      margin-right: 25px;
+      font-size: 24px;
+      font-weight: 700; }
+      .i-sheet ul.section-links li:last-child {
+        margin-right: 0; }
+      .i-sheet ul.section-links li a {
+        color: #a6b0b5; }
+        .i-sheet ul.section-links li a:hover, .i-sheet ul.section-links li a:active {
+          color: #045c93; }
+  .i-sheet h2, .i-sheet p {
+    line-height: 2;
+    text-align: center; }
+  .i-sheet h2 {
+    text-transform: uppercase;
+    margin-top: 80px;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 8px; }
+  .i-sheet p {
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 500; }
+    .i-sheet p:last-child {
+      margin-bottom: 0; }
+  .i-sheet ul:not(.section-links) {
+    margin-top: -20px;
+    margin-bottom: 40px;
+    text-align: center; }
+    .i-sheet ul:not(.section-links) li {
+      margin-bottom: 10px;
+      font-size: 16px; }
+  .i-sheet.i-light p {
+    color: black; }
 
 .i-bg-shades {
   background-attachment: fixed;
@@ -5793,6 +5798,9 @@ form {
   background-repeat: no-repeat; }
   .i-about-us .row .col:nth-child(2) img {
     margin-top: 40px; }
+
+.i-slider-dots-row {
+  margin-bottom: 0; }
 
 #i-offer-slider {
   height: 100px; }
