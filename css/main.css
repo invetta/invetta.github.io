@@ -5645,13 +5645,17 @@ body {
     text-transform: uppercase;
     display: inline-block;
     font-size: 26px;
-    font-weight: 200; }
+    font-weight: 200;
+    cursor: pointer; }
     .i-content .i-topic-list li:not(:last-child)::after {
       content: " /";
       font-weight: 700;
       margin-right: 6.66667px; }
     .i-content .i-topic-list li span {
+      color: #4e92cc;
       cursor: pointer; }
+      .i-content .i-topic-list li span:hover, .i-content .i-topic-list li span.active {
+        color: white; }
 .i-content .i-mini-logos {
   margin-top: 60px;
   display: flex;
@@ -5715,13 +5719,17 @@ body {
 .i-bg-navy-blue-dark {
   background-color: #023866; }
 
+.i-col-form h2, .i-col-form h3 {
+  color: #02345f; }
+
 .form-wrapper {
   padding: 40px; }
 
 form {
   margin-top: 20px; }
   form button.i-btn {
-    background-color: #032949; }
+    background-color: #032949;
+    color: white; }
   form input, form textarea, form button {
     margin-top: 13.33333px;
     width: 100%; }
@@ -5742,12 +5750,17 @@ form {
     form input input:-moz-placeholder, form textarea input:-moz-placeholder {
       color: #757575; }
 
-.i-bg-letter-blue {
+.i-bg-letter {
   background-image: url("../images/various/letter.png");
   background-size: 50% auto;
   background-position: 0% 50%;
-  background-color: #023866;
   background-repeat: no-repeat; }
+
+.i-bg-blue {
+  background-color: #023866; }
+
+.i-bg-white {
+  background-color: white; }
 
 .i-bg-dark-gray, .i-bg-plus {
   background-size: 64px 64px; }

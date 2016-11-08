@@ -278,6 +278,7 @@ body {
       display: inline-block;
       font-size: 26px;
       font-weight: 200;
+      cursor: pointer;
 
       &:not(:last-child)::after {
         content: " /";
@@ -286,7 +287,12 @@ body {
       }
 
       span {
+        color: #4e92cc;
         cursor: pointer;
+
+        &:hover, &.active {
+          color: white;
+        }
       }
     }
   }
@@ -395,6 +401,12 @@ body {
   background-color: $navy-blue;
 }
 
+.i-col-form {
+  h2,h3 {
+    color: $darkest-navy-blue;
+  }
+}
+
 .form-wrapper {
   padding: $M*2;
 }
@@ -404,6 +416,7 @@ form {
 
   button.i-btn {
     background-color: $dark-navy-blue;
+    color: white;
   }
 
   input, textarea, button {
@@ -424,12 +437,19 @@ form {
   }
 }
 
-.i-bg-letter-blue {
+.i-bg-letter {
   background-image: url('../images/various/letter.png');
   background-size: 50% auto;
   background-position: 0% 50%;
-  background-color: $navy-blue;
   background-repeat: no-repeat;
+}
+
+.i-bg-blue {
+  background-color: $navy-blue;
+}
+
+.i-bg-white {
+  background-color: white;
 }
 
 .i-bg-dark-gray, .i-bg-plus {
